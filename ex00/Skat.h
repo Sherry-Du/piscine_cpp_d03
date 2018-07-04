@@ -9,10 +9,10 @@ class Skat
 	Skat(std::string const& name = "bob", int stimPaks = 15);
 	~Skat();
     public:
-	int stimPaks();
+	int& stimPaks();
 	const std::string& name();
     public:
-	void shareStimPaks(int number, int stock);
+	void shareStimPaks(int number, int& stock);
 	void addStimPaks(unsigned int number);
 	void useStimPaks();
     public:

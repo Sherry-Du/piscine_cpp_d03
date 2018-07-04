@@ -8,7 +8,7 @@ Skat::Skat(std::string const& name, int stimPaks)
 
 Skat::~Skat(){}
 
-int Skat::stimPaks()
+int& Skat::stimPaks()
 {
     return this->_stimPaks;
 }
@@ -18,7 +18,7 @@ const std::string& Skat::name()
     return this->_name;
 }
 
-void Skat::shareStimPaks(int number, int stock)
+void Skat::shareStimPaks(int number, int& stock)
 {
     if(this->_stimPaks >= number)
     {
