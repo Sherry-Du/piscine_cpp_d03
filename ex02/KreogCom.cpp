@@ -35,15 +35,18 @@ KreogCom *KreogCom::getCom()
 
 void KreogCom::removeCom()
 {
-    if(this->_link == 0)
+    if (!_link)
+        return;
+    if (_link->_link)
     {
-	return ;
+        KreogCom* tmp = _link;
+        _link = _link->_link;
+        delete tmp;
     }
     else
     {
-	KreogCom *tmp = this->_link;
-	this->_link = tmp->_link;
-	//delete tmp;
+        delete _link;
+        _link = NULL;
     }
 }
 
@@ -61,6 +64,20 @@ void KreogCom::locateSquad() const
 	tmp = tmp->_link;
     }
     std::cout<<"KreogCom "<<this->m_serial<<" currently at "<<this->_x<<" "<<this->_y<<std::endl;
+}
+
+int main()
+{
+KreogCom k(42, 42, 101010);
+ k.addCom(56, 25, 65);
+k.addCom(73, 34, 51);
+
+k.locateSquad();
+
+k.removeCom();
+k.removeCom();
+
+ return 0;
 }
 
 
