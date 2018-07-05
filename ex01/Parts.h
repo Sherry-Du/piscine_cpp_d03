@@ -41,4 +41,5 @@ class Head
 	bool _functionnal;
 };
 
+
 #endif

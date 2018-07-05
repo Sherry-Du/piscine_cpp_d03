@@ -72,3 +72,4 @@ void Head::informations() const
     std::cout<<"[Parts] Head "<<this->_serial<<" status : "<<(this->isFunctionnal() ? "OK" : "KO")<<std::endl;
 }
 
+
