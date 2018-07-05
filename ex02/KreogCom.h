@@ -18,7 +18,7 @@ class KreogCom
 	int _x;
 	int _y;
 	KreogCom* _link;
-	int m_serial;
+	const int m_serial;
 };
 
 

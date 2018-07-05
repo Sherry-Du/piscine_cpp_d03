@@ -1,10 +1,9 @@
 #include "KreogCom.h"
 
-KreogCom::KreogCom(int x, int y, int serial)
+KreogCom::KreogCom(int x, int y, int serial):m_serial(serial)
 {
     this->_x = x;
     this->_y = y;
-    this->m_serial = serial;
     this->_link = 0;
     std::cout<<"KreogCom "<<serial<<" initialised"<<std::endl;
 }
@@ -55,24 +54,14 @@ void KreogCom::ping() const
 
 void KreogCom::locateSquad() const
 {
-    if(this->_link != 0)
-	this->_link->locateSquad();
-    ping();
+    KreogCom *tmp = this->_link;
+    while(tmp != 0)
+    {
+	std::cout<<"KreogCom "<<tmp->m_serial<<" currently at "<<tmp->_x<<" "<<tmp->_y<<std::endl;
+	tmp = tmp->_link;
+    }
+    std::cout<<"KreogCom "<<this->m_serial<<" currently at "<<this->_x<<" "<<this->_y<<std::endl;
 }
-/*
-int main()
-{
-KreogCom k(42, 42, 101010);
-//k.ping();
-k.addCom(56, 25, 65);
-//k.ping();
-k.addCom(73, 34, 51);
-//k.ping();
-k.locateSquad();
-k.removeCom();
-k.removeCom();
 
-return 0;
-}*/
 
 
