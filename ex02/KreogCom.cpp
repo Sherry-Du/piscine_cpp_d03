@@ -43,7 +43,7 @@ void KreogCom::removeCom()
     {
 	KreogCom *tmp = this->_link;
 	this->_link = tmp->_link;
-	delete tmp;
+	//delete tmp;
     }
 }
 
